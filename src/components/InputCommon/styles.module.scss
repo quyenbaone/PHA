@@ -1,0 +1,35 @@
+@import '@styles/mixin.module.scss';
+@import '@styles/variable.module.scss';
+
+.container {
+    margin-bottom: 20px;
+
+    .labelInput {
+        font-size: 14px;
+        color: $four_color;
+        margin-bottom: 5px;
+    }
+
+    .boxInput {
+        width: 100%;
+        position: relative;
+
+        input {
+            width: 100%;
+            border: 1px solid #e1e1e1;
+            outline: none; //để ko có viền xanh
+            padding: 10px 0 10px 10px; // giản ra từ chữ vs ô
+        }
+
+        .boxIcon {
+            position: absolute;
+            top: 12px;
+            right: 0px;
+        }
+
+        .errMsg {
+            font-size: 12px;
+            color: red;
+        }
+    }
+}

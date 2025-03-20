@@ -1,0 +1,332 @@
+@import '@styles/variable.module.scss';
+@import '@styles/mixin.module.scss';
+
+.container {
+    padding-top: 83px;
+}
+
+.containerSteps {
+    @include flex_box_custom(center, center, 0px);
+    background-color: #fafafa;
+    padding: 2.3vw 0px;
+    flex-direction: column;
+    margin-bottom: 2.3vw;
+
+    .steps {
+        @include flex_box_custom(center, center, 30px);
+
+        .line {
+            min-width: 120px; // min-width là chiều dài của đường line
+            background-color: #e1e1e1;
+            height: 1px;
+        }
+    }
+
+    .textNoti {
+        color: $four_color;
+        font-size: 16px;
+        padding-top: 35px;
+    }
+
+    .stepper {
+        @include flex_box_custom(center, center, 8px);
+        text-transform: uppercase;
+
+        .numberStep {
+            @include flex_box_custom(center, center, 0px);
+            background-color: $primary_color;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            color: $white_color;
+        }
+
+        .isDisableNumber {
+            background-color: transparent; //transparent là màu trong suốt
+            border: 1px solid #e1e1e1;
+            color: #888;
+        }
+
+        .textStep {
+            color: $four_color;
+            font-size: 21px;
+            font-weight: 400;
+        }
+
+        .isDisableText {
+            color: #9a9a9a;
+        }
+    }
+}
+
+.containerContents {
+    @include flex_box_custom(space-between, flex-start, 30px);
+
+    .cartTable {
+        margin: 0 auto;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e1e1e1;
+        position: relative;
+        vertical-align: top;
+
+        position: relative;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+
+            thead {
+                tr {
+                    th {
+                        padding: 10px 15px;
+                        border-bottom: 1px solid #ccc;
+                        font-size: 14px;
+                        font-weight: 400;
+                        text-align: center;
+                        text-transform: uppercase;
+
+                        &:first-child {
+                            padding-left: 0;
+                            text-align: left;
+                        }
+
+                        &:last-child {
+                            padding-right: 0;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        padding: 14px 10px 10px 0px;
+                        color: $seconddary_color;
+                        font-size: 14px;
+                        font-weight: 300;
+                        vertical-align: top;
+
+                        .productInfo {
+                            @include flex_box_custom(center, flex-start, 0px);
+                            width: 200px;
+
+                            .productContent{
+                                flex-wrap: wrap;
+                            }
+                        }
+
+                        &:nth-child(1) {
+                            display: flex;
+                            color: $four_color;
+                            font-size: 16px;
+
+                            img {
+                                width: calc(100px - 0.71em);
+                                margin-right: 20px;
+                                border-radius: 2px;
+                            }
+
+                            div {
+                                flex-grow: 1;
+                                padding: 0;
+
+                                .nameProduct {
+                                    font-size: 16px;
+                                    color: $primary_color;
+                                    font-weight: 400;
+                                    margin-bottom: 7px;
+                                }
+
+                                .sizeProduct {
+                                    &__name {
+                                        font-size: 13.3px;
+                                        color: $four_color;
+                                        font-weight: 400;
+                                    }
+
+                                    &__value {
+                                        color: $seconddary_color;
+                                        font-size: 13.3px;
+                                    }
+                                }
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            select {
+                                width: 100%;
+                                padding: 5px;
+                                border: 1px solid #ccc;
+                                border-radius: 1px;
+                                color: $seconddary_color;
+                            }
+                        }
+
+                    
+
+                        .productSku {
+                            color: $primary_color;
+                            font-weight: 400;
+                            margin: 0;
+                            text-align: center;
+                        }
+
+                        .productPrice {
+                            color: $seconddary_color;
+                            margin: 0;
+                            text-align: end;
+                        }
+                    }
+                }
+            }
+        }
+
+        .loadingCart {
+            @include flex_box_custom(center, center, 0px);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    }
+
+    .containerRight {
+        flex-grow: 1;
+    }
+
+    .containerSummary {
+        padding: 25px;
+        border: 2px solid $primary_color;
+        position: relative;
+        .title {
+            color: $primary_color;
+            font-size: 14px;
+            border-bottom: 1px solid #e1e1e1;
+            padding: 0 0 14px;
+            margin: 0 0 19.6px;
+        }
+
+        .boxTotal {
+            @include flex_box_custom(space-between, center, 0px);
+            margin-bottom: 25px;
+        }
+
+        .subTotal {
+            color: $thr_color;
+            font-size: 16px;
+
+            .price {
+                color: $seconddary_color;
+                font-size: 14px;
+            }
+        }
+
+        .total {
+            color: $four_color;
+            font-size: 20px;
+        }
+
+        .empty {
+            height: 10px;
+        }
+
+        .loadingCart {
+            @include flex_box_custom(center, center, 0px);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    }
+
+    .containerMethods {
+        position: relative;
+        padding: 25px 0px;
+        border: 1px solid #e1e1e1;
+        width: 100%;
+        margin-top: 45px;
+        margin-bottom: 10px;
+
+        .titleMethods {
+            position: absolute;
+            top: -8px;
+            transform: translateX(-50%);
+            left: 50%;
+            background-color: $white_color;
+            padding: 0px 10px;
+            text-transform: uppercase;
+            font-size: 14px;
+
+            span {
+                color: #2e7d32;
+            }
+        }
+
+        .boxImgMethods {
+            @include flex_box_custom(center, center, 15px);
+        }
+
+        .imgMethods {
+            border: 1px solid #e1e1e1;
+            border-radius: 4px;
+            width: 50px;
+            height: 34px;
+        }
+    }
+
+    .textSecure {
+        font-size: 14px;
+        color: $thr_color;
+        text-align: center;
+
+        span {
+            color: $four_color;
+        }
+    }
+
+    .fotterContent {
+        @include flex_box_custom(space-between, center, 10px);
+        margin-top: 10px;
+
+        .couponCode {
+            @include flex_box_custom(center, center, 0px);
+
+            input {
+                border: 1px solid #ccc;
+                border-radius: 1px;
+                color: $seconddary_color;
+                border-right: 0px;
+                padding: 8px 8px 8px 41px;
+                width: 300px;
+            }
+        }
+
+        .btnFotterContent {
+            @include flex_box_custom(center, center, 0px);
+        }
+    }
+}
+
+.boxEmptyCart {
+    @include flex_box_custom(center, center, 15px);
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    .titleEmpty {
+        font-size: 23px;
+        color: $primary_color;
+        font-weight: 400;
+    }
+
+    .desEmpty {
+        color: $thr_color;
+        font-size: 14px;
+    }
+}

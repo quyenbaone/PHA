@@ -1,0 +1,98 @@
+@import '@styles/variable.module.scss';
+@import '@styles/mixin.module.scss';
+
+.container {
+    padding-top: 83px;
+
+    .functionBox {
+        @include flex_box_custom(space-between, center, 0px);
+        color: $seconddary_color;
+        font-size: 14px;
+    }
+
+    .specialText {
+        color: $primary_color;
+        font-weight: 400;
+    }
+
+    .btnBack {
+        cursor: pointer;
+    }
+}
+
+.containerBanner {
+    background-image: url(https://xstore.8theme.com/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Background.jpeg);
+    width: 100%;
+    height: 279px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; //để chiếm hết khung hình
+    margin-top: 10px;
+
+    .contentBox {
+        @include flex_box_custom(space-between, center, 20px);
+        flex-direction: column;
+        padding: 60px 0px;
+
+        .countDownbox {
+            @include flex_box_custom(center, center, 10px);
+        }
+
+        .countDownbox > span {
+            // lấy thắng span đầu tiên trong countDownbox
+            margin-top: 0px;
+            border: 1px solid #e1e1e1;
+        }
+
+        .title {
+            font-size: 24px;
+            color: $four_color;
+        }
+
+        .boxBtn {
+            width: 160px;
+        }
+    }
+}
+
+.containerFilter {
+    @include flex_box_custom(space-between, center, 0px);
+
+    margin-top: 15px;
+
+    .boxLeft {
+        @include flex_box_custom(center, center, 20px);
+    }
+
+    .boxIcon {
+        @include flex_box_custom(center, center, 10px);
+        cursor: pointer;
+    }
+
+    .selectBox.sort {
+        width: 275px;
+    }
+
+   
+}
+
+.selectBox {
+    border: 1px solid #e1e1e1;
+    padding: 5px;
+    color: $seconddary_color;
+}
+
+.selectBox.show {
+    width: 83px;
+}
+
+.containerProduct {
+    @include flex_box_custom(space-between, flex-start, 10px);
+
+    margin-top: 10px;
+    flex-wrap: wrap; //flex-wrap là để các item trong flexbox sẽ xuống dòng khi không đủ chỗ
+}
+
+.sectionListProducts {
+    min-height: 800px; //để khi không có sản phẩm thì vẫn giữ nguyên chiều cao không bị nhảy
+}

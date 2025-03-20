@@ -1,0 +1,88 @@
+@import '@styles/mixin.module.scss';
+@import '@styles/variable.module.scss';
+
+
+
+.container{
+    padding: 20px;
+
+
+    .title{
+        font-size: 24px;
+        color: $four_color;
+        margin-top: 20px;
+    }
+    .price{
+        color: $seconddary_color;
+        font-size: 19.6px;
+        margin: 15px 0px;
+    }
+
+    .desc{
+        color: $thr_color;
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .label{
+        font-size: 14px;
+        color: $thr_color;
+        margin-top: 15px;
+    }
+
+    .boxSize{
+        @include flex_box_custom(flex-start, center, 10px);
+
+        .boxItem{
+            border: 1px solid #e1e1e1;
+            padding: 9px;
+            font-size: 12px;
+            cursor: pointer;
+
+            &:hover{
+                border: 1px solid $primary_color;
+            }
+        }
+
+        .isActive{
+            border: 1px solid $primary_color;
+        }
+    }
+
+    .boxAddToCart{
+        @include flex_box_custom(flex-start, center, 20px);
+        margin: 10px 0px;
+        select{
+            width: 65px;
+            height: 37px;
+        }
+    }
+
+    .boxOr{
+        @include flex_box_custom(center, center, 10px);
+
+        .line{
+            width: 100%;
+            height: 1px;
+            background-color: #e1e1e1;
+            flex-grow: 1; // để nó co giãn ra hết
+        }
+
+        .or{
+            font-size: 12px;
+            color: $thr_color;
+        }
+    }
+
+    .boxAddOther{
+        @include flex_box_custom(flex-start, center, 15px);
+        margin-top: 10px;
+        color: $four_color;
+        cursor: pointer;
+    }
+
+    .boxFooter{
+        margin-top: 12px;
+    }
+}
+

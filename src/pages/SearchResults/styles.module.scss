@@ -1,0 +1,28 @@
+@import '@styles/variable.module.scss';
+
+.searchResults {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.searchTitle {
+    font-size: 24px;
+    color: $primary_color;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.noResults {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin: 40px 0;
+}
+
+.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+} 
