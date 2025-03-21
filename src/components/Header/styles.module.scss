@@ -25,10 +25,12 @@
 
 .containerHeader {
     width: 1250px;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
+    gap: 20px;
     height: 83px;
+    padding: 0 15px;
 }
 
 .containerBoxIcon {
@@ -40,11 +42,11 @@
 }
 
 .containerBox {
-    @include flex_box_custom(center, center, 20px);
+    @include flex_box_custom(center, end, 20px);
 }
 
 .containerMenu {
-    @include flex_box_custom(center, center, 40px);
+    @include flex_box_custom(center, start, 40px);
 }
 
 .boxIcon {
@@ -142,4 +144,38 @@
     &:hover {
         background: darken($primary_color, 10%);
     }
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.userName {
+    color: $primary_color;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.logoutButton {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba(#dc3545, 0.1);
+    }
+}
+
+.searchContainer {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
 }

@@ -1,3 +1,4 @@
+import { useAuth } from '@/contexts/AuthProvider';
 import Button from '@components/Button/Button';
 import { useState } from 'react';
 import { FiLock, FiMail } from 'react-icons/fi';
@@ -11,6 +12,7 @@ function Login({ onSwitchToRegister }) {
     });
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -53,8 +55,13 @@ function Login({ onSwitchToRegister }) {
 
         try {
             // TODO: Implement actual login API call here
-            console.log('Login with:', formData);
-            // Redirect after successful login
+            // Giả lập response từ API
+            const userData = {
+                email: formData.email,
+                name: formData.email.split('@')[0], // Tạm thời lấy phần trước @ làm tên
+            };
+
+            login(userData);
             navigate('/');
         } catch (error) {
             console.error('Login error:', error);

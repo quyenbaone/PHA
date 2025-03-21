@@ -1,4 +1,5 @@
 // import Logo from '@/assets/icons/images/Anhpha_logo.jpg';
+import { useAuth } from '@/contexts/AuthProvider';
 import { SideBarContext } from '@/contexts/SideBarProvider';
 import useScrollHandling from '@/hooks/useScrollHandling';
 import Search from '@components/Search/Search';
@@ -26,13 +27,17 @@ function MyHeader() {
         quantityCart,
         authButtons,
         loginButton,
-        registerButton
+        registerButton,
+        userInfo,
+        userName,
+        logoutButton
     } = styles;
 
     const { scrollPosition } = useScrollHandling();
     const [fixedPosition, setFixedPosition] = useState(false);
     const { setIsOpen, setType, listProductCart } = useContext(SideBarContext);
     const navigate = useNavigate();
+    const { user, logout } = useAuth();
 
     const handleOpenSideBar = (type) => {
         setIsOpen(true);
@@ -45,6 +50,15 @@ function MyHeader() {
 
     const handleLogin = () => {
         navigate('/auth');
+    };
+
+    const handleRegister = () => {
+        navigate('/auth?register=true');
+    };
+
+    const handleLogout = () => {
+        logout();
+        navigate('/');
     };
 
     return (
@@ -78,16 +92,7 @@ function MyHeader() {
                         })}
                     </div>
                 </div>
-                <div>
-                    {/* <img
-                        src={Logo}
-                        alt='Logo'
-                        style={{
-                            width: '153px',
-                            height: '53px'
-                        }}
-                    /> */}
-                </div>
+                
                 <div className={containerBox}>
                     <Search />
                     <div className={containerBoxIcon}>
@@ -116,12 +121,23 @@ function MyHeader() {
                         </div>
                     </div>
                     <div className={authButtons}>
-                        <button className={loginButton} onClick={handleLogin}>
-                            Đăng nhập
-                        </button>
-                        <button className={registerButton} onClick={handleLogin}>
-                            Đăng ký
-                        </button>
+                        {user ? (
+                            <div className={userInfo}>
+                                <span className={userName}>Xin chào, {user.name}</span>
+                                <button className={logoutButton} onClick={handleLogout}>
+                                    Đăng xuất
+                                </button>
+                            </div>
+                        ) : (
+                            <>
+                                <button className={loginButton} onClick={handleLogin}>
+                                    Đăng nhập
+                                </button>
+                                <button className={registerButton} onClick={handleRegister}>
+                                    Đăng ký
+                                </button>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
